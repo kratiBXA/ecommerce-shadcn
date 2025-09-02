@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from '../components/Header'; // Importing the Header component
+import Header from '../components/Header'; 
 import './globals.css'; 
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
-        <Header /> {/* Render the Header */}
-        <main>{children}</main> {/* Main content of the pages */}
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );

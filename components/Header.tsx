@@ -1,20 +1,16 @@
 import React from 'react';
-import Link from 'next/link'; // If you're using Next.js
+import Link from 'next/link'; 
 import { Button } from '@/components/ui/button';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 const Header = () => {
-  // Static cart item count for simplicity
-  const cartItemCount = 3; // Example static number of items in the cart
+  const cartItemCount = 3;
 
   return (
     <nav className="flex items-center justify-between p-4 bg-gray-800 text-white shadow-md">
-      {/* Logo */}
       <div className="text-xl font-bold">
         <Link href="/">My E-Commerce</Link>
       </div>
-
-      {/* Navbar Links */}
       <div className="flex items-center space-x-6">
         <Link href="/product">
           <Button variant="link" color="light" className="text-white hover:text-gray-400">
@@ -26,8 +22,6 @@ const Header = () => {
             Orders
           </Button>
         </Link>
-
-        {/* Cart with Badge */}
         <Link href="/cart">
           <div className="relative">
             <Button variant="link" color="light" className="text-white hover:text-gray-400">
@@ -40,8 +34,6 @@ const Header = () => {
             )}
           </div>
         </Link>
-
-        {/* User Dropdown (Profile & Sign Out) */}
         <DropdownMenu.Root>
           <DropdownMenu.Trigger asChild>
             <Button variant="link" color="light" className="text-white hover:text-gray-400">

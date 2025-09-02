@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link'; // Next.js Link component to navigate to product details page
+import Link from 'next/link'; 
 
 interface ProductCardProps {
   id: number;

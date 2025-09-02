@@ -1,14 +1,20 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import ProductCard from '@/components/ProductCard'; // Assuming ProductCard is in components
-
+import ProductCard from '@/components/ProductCard'; 
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+  price: number;
+}
 const AllProducts = () => {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // Fetch products from Fake Store API
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {

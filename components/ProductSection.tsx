@@ -1,20 +1,24 @@
-'use client'; // Ensure this is a client-side component
+'use client'; 
 
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+  price: number;
+}
 
 const ProductSection: React.FC = () => {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
-  // Fetching products from the Fake Store API using fetch
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await fetch('https://fakestoreapi.com/products');
-        
-        // Check if response is OK (status 200-299)
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
@@ -29,7 +33,7 @@ const ProductSection: React.FC = () => {
     };
 
     fetchProducts();
-  }, []); // Empty dependency array ensures this effect runs only once when the component mounts
+  }, []); 
 
   return (
     <div className="my-8">

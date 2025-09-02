@@ -1,17 +1,24 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation'; // useParams is for dynamic routing
+import { useParams } from 'next/navigation'; 
+
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+  price: number;
+}
 
 const ProductDetail = () => {
-  const { id } = useParams(); // Get the product ID from the URL
-  const [product, setProduct] = useState<any>(null);
+  const { id } = useParams();
+  
+  const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
-
-  // Fetch product details from the Fake Store API based on the ID
   useEffect(() => {
-    if (!id) return; // Ensure `id` exists before making the API request
+    if (!id) return;
 
     const fetchProduct = async () => {
       try {
@@ -29,7 +36,7 @@ const ProductDetail = () => {
     };
 
     fetchProduct();
-  }, [id]); // Re-fetch the product when `id` changes
+  }, [id]); 
 
   if (loading) {
     return <div className="text-center">Loading product...</div>;
