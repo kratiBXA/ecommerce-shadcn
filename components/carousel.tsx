@@ -8,21 +8,18 @@ interface CarouselProps {
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Function to handle the next image
   const nextImage = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  // Function to handle the previous image
   const prevImage = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
 
-  // Auto-slide images every 3 seconds
   useEffect(() => {
-    const interval = setInterval(nextImage, 3000); // Change every 3 seconds
+    const interval = setInterval(nextImage, 3000); 
     return () => clearInterval(interval);
   }, []);
 

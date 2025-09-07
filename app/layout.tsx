@@ -1,16 +1,18 @@
-import React from 'react';
-import Header from '../components/Header'; 
-import './globals.css'; 
+// app/layout.tsx
+import './globals.css';
+import { ReactNode } from 'react';
+import { CartProvider } from '@/context/CartContext'; // ✅ import provider
+import Header from '@/components/Header';
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>{children}</main>
+        <CartProvider>
+          <Header />           {/* ✅ Now inside CartProvider */}
+          <main>{children}</main>
+        </CartProvider>
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}
